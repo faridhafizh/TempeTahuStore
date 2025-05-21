@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produk Kami - TempeTahu Kita</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <h1>TempeTahu Kita</h1>
+            </a>
+            <nav>
+                <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="products.html" class="active">Produk</a></li>
+                    <li><a href="recipes.html">Resep</a></li>
+                    <li><a href="about.html">Tentang Kami</a></li>
+                    <li><a href="contact.html">Kontak</a></li>
+                </ul>
+            </nav>
+            <a href="cart.html" class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section id="all-products" class="section-padding">
+            <div class="container">
+                <h2 class="section-title">Semua Produk Kami</h2>
+
+                <div class="filter-search-section">
+                    <div class="filters">
+                        <label for="filter-category">Kategori:</label>
+                        <select id="filter-category" name="category">
+                            <option value="all">Semua</option>
+                            <option value="tempe">Tempe</option>
+                            <option value="tahu">Tahu</option>
+                            <option value="olahan">Olahan</option>
+                        </select>
+                        <!-- Tambahkan filter lain jika perlu (mis. harga, popularitas) -->
+                    </div>
+                    <div class="search-bar">
+                        <input type="text" id="search-input" placeholder="Cari produk...">
+                        <button id="search-button"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+
+                <div class="product-grid" id="product-list-container">
+                    <!-- Produk akan dimuat oleh JavaScript atau di-hardcode -->
+                    <div class="product-card" data-category="tempe">
+                        <img src="images/tempe-mendoan.jpg" alt="Tempe Mendoan Fresh">
+                        <h3>Tempe Mendoan Fresh</h3>
+                        <p class="price">Rp 10.000 / pak</p>
+                        <button class="btn btn-secondary add-to-cart-btn" data-id="1" data-name="Tempe Mendoan Fresh" data-price="10000" data-image="images/tempe-mendoan.jpg">Tambah ke Keranjang</button>
+                    </div>
+                    <div class="product-card" data-category="tahu">
+                        <img src="images/tahu-sutra.jpg" alt="Tahu Sutra Lembut">
+                        <h3>Tahu Sutra Lembut</h3>
+                        <p class="price">Rp 8.000 / buah</p>
+                        <button class="btn btn-secondary add-to-cart-btn" data-id="2" data-name="Tahu Sutra Lembut" data-price="8000" data-image="images/tahu-sutra.jpg">Tambah ke Keranjang</button>
+                    </div>
+                    <div class="product-card" data-category="olahan">
+                        <img src="images/tempe-bacem.jpg" alt="Tempe Bacem Manis Gurih">
+                        <h3>Tempe Bacem Manis Gurih</h3>
+                        <p class="price">Rp 15.000 / pak</p>
+                        <button class="btn btn-secondary add-to-cart-btn" data-id="3" data-name="Tempe Bacem Manis Gurih" data-price="15000" data-image="images/tempe-bacem.jpg">Tambah ke Keranjang</button>
+                    </div>
+                    <div class="product-card" data-category="tahu">
+                        <img src="images/tahu-kuning.jpg" alt="Tahu Kuning Kediri">
+                        <h3>Tahu Kuning Kediri</h3>
+                        <p class="price">Rp 12.000 / pak</p>
+                        <button class="btn btn-secondary add-to-cart-btn" data-id="4" data-name="Tahu Kuning Kediri" data-price="12000" data-image="images/tahu-kuning.jpg">Tambah ke Keranjang</button>
+                    </div>
+                    <div class="product-card" data-category="tempe">
+                        <img src="images/tempe-papan.jpg" alt="Tempe Papan Segar">
+                        <h3>Tempe Papan Segar</h3>
+                        <p class="price">Rp 7.000 / papan</p>
+                        <button class="btn btn-secondary add-to-cart-btn" data-id="5" data-name="Tempe Papan Segar" data-price="7000" data-image="images/tempe-papan.jpg">Tambah ke Keranjang</button>
+                    </div>
+                     <div class="product-card" data-category="olahan">
+                        <img src="images/keripik-tempe.jpg" alt="Keripik Tempe Renyah">
+                        <h3>Keripik Tempe Renyah</h3>
+                        <p class="price">Rp 18.000 / bungkus</p>
+                        <button class="btn btn-secondary add-to-cart-btn" data-id="6" data-name="Keripik Tempe Renyah" data-price="18000" data-image="images/keripik-tempe.jpg">Tambah ke Keranjang</button>
+                    </div>
+                    <!-- Tambahkan lebih banyak produk di sini -->
+                </div>
+                <p id="no-product-message" style="display:none; text-align:center; margin-top: 20px;">Produk tidak ditemukan.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <!-- Sama seperti di index.html -->
+        <div class="container">
+            <div class="footer-content">
+                 <div class="footer-section about">
+                    <h3>TempeTahu Kita</h3>
+                    <p>Menyediakan tempe dan tahu segar berkualitas tinggi untuk Anda dan keluarga.</p>
+                    <div class="socials">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section links">
+                    <h3>Tautan Cepat</h3>
+                    <ul>
+                        <li><a href="products.html">Produk</a></li>
+                        <li><a href="recipes.html">Resep</a></li>
+                        <li><a href="about.html">Tentang Kami</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact-info">
+                    <h3>Kontak Kami</h3>
+                    <p><i class="fas fa-phone"></i> +62 123 4567 890</p>
+                    <p><i class="fas fa-envelope"></i> info@tempetahukita.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Jl. Kedelai Sehat No. 1, Jakarta</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                © <span id="currentYear"></span> TempeTahu Kita | Didesain dengan ❤️
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

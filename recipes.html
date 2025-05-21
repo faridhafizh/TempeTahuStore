@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kumpulan Resep - TempeTahu Kita</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <!-- Header sama seperti halaman lain -->
+        <div class="container">
+            <a href="index.html" class="logo">
+                <h1>TempeTahu Kita</h1>
+            </a>
+            <nav>
+                <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="products.html">Produk</a></li>
+                    <li><a href="recipes.html" class="active">Resep</a></li>
+                    <li><a href="about.html">Tentang Kami</a></li>
+                    <li><a href="contact.html">Kontak</a></li>
+                </ul>
+            </nav>
+            <a href="cart.html" class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section id="recipes-hero" class="page-hero" style="background-image: url('images/recipes-hero.jpg');">
+            <div class="container">
+                <h1>Inspirasi Resep Tempe & Tahu</h1>
+                <p>Temukan cara baru menikmati kelezatan tempe dan tahu setiap hari.</p>
+            </div>
+        </section>
+
+        <section id="recipe-list" class="section-padding">
+            <div class="container">
+                <h2 class="section-title">Koleksi Resep Pilihan</h2>
+                <div class="recipe-grid">
+                    <!-- Contoh Recipe Card 1 -->
+                    <div class="recipe-card">
+                        <img src="images/resep-tempe-bacem.jpg" alt="Resep Tempe Bacem">
+                        <div class="recipe-card-content">
+                            <h3>Tempe Bacem Legit Menggoda</h3>
+                            <p class="recipe-meta"><i class="fas fa-clock"></i> 45 Menit | <i class="fas fa-utensils"></i> Mudah</p>
+                            <p class="recipe-excerpt">Resep klasik tempe bacem dengan rasa manis gurih yang meresap sempurna. Cocok untuk lauk atau camilan.</p>
+                            <a href="recipe-detail-placeholder.html?id=tempe-bacem" class="btn btn-outline">Lihat Resep</a>
+                        </div>
+                    </div>
+
+                    <!-- Contoh Recipe Card 2 -->
+                    <div class="recipe-card">
+                        <img src="images/resep-tahu-gejrot.jpg" alt="Resep Tahu Gejrot">
+                        <div class="recipe-card-content">
+                            <h3>Tahu Gejrot Pedas Segar</h3>
+                            <p class="recipe-meta"><i class="fas fa-clock"></i> 20 Menit | <i class="fas fa-utensils"></i> Mudah</p>
+                            <p class="recipe-excerpt">Sensasi pedas, asam, manis dari kuah tahu gejrot yang menyegarkan. Jajanan khas Cirebon yang bikin nagih!</p>
+                            <a href="recipe-detail-placeholder.html?id=tahu-gejrot" class="btn btn-outline">Lihat Resep</a>
+                        </div>
+                    </div>
+
+                    <!-- Contoh Recipe Card 3 -->
+                    <div class="recipe-card">
+                        <img src="images/resep-steak-tempe.jpg" alt="Resep Steak Tempe">
+                        <div class="recipe-card-content">
+                            <h3>Steak Tempe Saus Lada Hitam</h3>
+                            <p class="recipe-meta"><i class="fas fa-clock"></i> 60 Menit | <i class="fas fa-utensils"></i> Sedang</p>
+                            <p class="recipe-excerpt">Alternatif steak yang sehat dan lezat. Tempe diolah menjadi steak empuk dengan saus lada hitam yang kaya rasa.</p>
+                            <a href="recipe-detail-placeholder.html?id=steak-tempe" class="btn btn-outline">Lihat Resep</a>
+                        </div>
+                    </div>
+                     <!-- Tambahkan recipe card lainnya -->
+                </div>
+                <!-- Pagination bisa ditambahkan di sini jika resep banyak -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <!-- Footer sama seperti halaman lain -->
+        <div class="container">
+            <div class="footer-content">
+                 <div class="footer-section about">
+                    <h3>TempeTahu Kita</h3>
+                    <p>Menyediakan tempe dan tahu segar berkualitas tinggi untuk Anda dan keluarga.</p>
+                    <div class="socials">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section links">
+                    <h3>Tautan Cepat</h3>
+                    <ul>
+                        <li><a href="products.html">Produk</a></li>
+                        <li><a href="recipes.html">Resep</a></li>
+                        <li><a href="about.html">Tentang Kami</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact-info">
+                    <h3>Kontak Kami</h3>
+                    <p><i class="fas fa-phone"></i> +62 123 4567 890</p>
+                    <p><i class="fas fa-envelope"></i> info@tempetahukita.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Jl. Kedelai Sehat No. 1, Jakarta</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                © <span id="currentYear"></span> TempeTahu Kita | Didesain dengan ❤️
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

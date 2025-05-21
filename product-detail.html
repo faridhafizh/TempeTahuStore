@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Ganti title sesuai produk yang ditampilkan -->
+    <title>Detail Produk: Tempe Mendoan Fresh - TempeTahu Kita</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <!-- Header sama seperti halaman lain -->
+        <div class="container">
+            <a href="index.html" class="logo">
+                <h1>TempeTahu Kita</h1>
+            </a>
+            <nav>
+                <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="products.html" class="active">Produk</a></li> <!-- Anggap user datang dari halaman produk -->
+                    <li><a href="recipes.html">Resep</a></li>
+                    <li><a href="about.html">Tentang Kami</a></li>
+                    <li><a href="contact.html">Kontak</a></li>
+                </ul>
+            </nav>
+            <a href="cart.html" class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section id="product-detail-section" class="section-padding">
+            <div class="container">
+                <!-- Breadcrumbs (Opsional) -->
+                <div class="breadcrumbs">
+                    <a href="index.html">Beranda</a> > <a href="products.html">Produk</a> > <span>Tempe Mendoan Fresh</span>
+                </div>
+
+                <div class="product-detail-layout">
+                    <div class="product-gallery">
+                        <!-- Untuk galeri sederhana, satu gambar utama -->
+                        <img src="images/tempe-mendoan.jpg" alt="Tempe Mendoan Fresh" id="main-product-image">
+                        <!-- Thumbnails bisa ditambahkan di sini jika ingin galeri lebih kompleks -->
+                        <!-- <div class="thumbnails">
+                            <img src="images/tempe-mendoan-thumb1.jpg" alt="Thumbnail 1" class="active">
+                            <img src="images/tempe-mendoan-thumb2.jpg" alt="Thumbnail 2">
+                        </div> -->
+                    </div>
+
+                    <div class="product-info">
+                        <h2 id="product-name">Tempe Mendoan Fresh</h2>
+                        <p class="product-price" id="product-price">Rp 10.000 / pak</p>
+
+                        <div class="product-description">
+                            <h4>Deskripsi Produk:</h4>
+                            <p>Tempe mendoan segar siap goreng, dibuat dari kedelai pilihan berkualitas tinggi dengan resep tradisional. Cocok untuk camilan atau lauk pendamping nasi. Setiap pak berisi 5-6 lembar tempe mendoan.</p>
+                            <p><strong>Saran Penyajian:</strong> Celupkan ke dalam adonan tepung berbumbu, goreng hingga setengah matang (mendo). Sajikan selagi hangat dengan cabai rawit atau sambal kecap.</p>
+                        </div>
+
+                        <div class="product-nutrition">
+                            <h4>Informasi Nutrisi (Per 100g - Estimasi):</h4>
+                            <ul>
+                                <li>Kalori: 190 kcal</li>
+                                <li>Protein: 18g</li>
+                                <li>Lemak: 10g</li>
+                                <li>Karbohidrat: 8g</li>
+                            </ul>
+                        </div>
+
+                        <div class="product-actions">
+                            <label for="quantity">Jumlah:</label>
+                            <input type="number" id="quantity" name="quantity" value="1" min="1" class="quantity-input-detail">
+                            <!-- Data attributes untuk JS keranjang -->
+                            <button class="btn btn-primary add-to-cart-btn"
+                                    data-id="1"
+                                    data-name="Tempe Mendoan Fresh"
+                                    data-price="10000"
+                                    data-image="images/tempe-mendoan.jpg">
+                                <i class="fas fa-cart-plus"></i> Tambah ke Keranjang
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produk Terkait (Contoh Hardcoded) -->
+                <section id="related-products" class="section-padding">
+                    <h3 class="sub-section-title">Anda Mungkin Juga Suka</h3>
+                    <div class="product-grid">
+                        <div class="product-card" data-category="tahu">
+                            <img src="images/tahu-sutra.jpg" alt="Tahu Sutra Lembut">
+                            <h3>Tahu Sutra Lembut</h3>
+                            <p class="price">Rp 8.000 / buah</p>
+                            <a href="product-detail.html?id=2" class="btn btn-outline">Lihat Detail</a>
+                            <!-- <button class="btn btn-secondary add-to-cart-btn" data-id="2" data-name="Tahu Sutra Lembut" data-price="8000" data-image="images/tahu-sutra.jpg">Tambah ke Keranjang</button> -->
+                        </div>
+                        <div class="product-card" data-category="olahan">
+                            <img src="images/tempe-bacem.jpg" alt="Tempe Bacem Manis Gurih">
+                            <h3>Tempe Bacem Manis Gurih</h3>
+                            <p class="price">Rp 15.000 / pak</p>
+                            <a href="product-detail.html?id=3" class="btn btn-outline">Lihat Detail</a>
+                            <!-- <button class="btn btn-secondary add-to-cart-btn" data-id="3" data-name="Tempe Bacem Manis Gurih" data-price="15000" data-image="images/tempe-bacem.jpg">Tambah ke Keranjang</button> -->
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <!-- Footer sama seperti halaman lain -->
+        <div class="container">
+            <div class="footer-content">
+                 <div class="footer-section about">
+                    <h3>TempeTahu Kita</h3>
+                    <p>Menyediakan tempe dan tahu segar berkualitas tinggi untuk Anda dan keluarga.</p>
+                    <div class="socials">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section links">
+                    <h3>Tautan Cepat</h3>
+                    <ul>
+                        <li><a href="products.html">Produk</a></li>
+                        <li><a href="recipes.html">Resep</a></li>
+                        <li><a href="about.html">Tentang Kami</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact-info">
+                    <h3>Kontak Kami</h3>
+                    <p><i class="fas fa-phone"></i> +62 123 4567 890</p>
+                    <p><i class="fas fa-envelope"></i> info@tempetahukita.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Jl. Kedelai Sehat No. 1, Jakarta</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                © <span id="currentYear"></span> TempeTahu Kita | Didesain dengan ❤️
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <!-- JS khusus untuk halaman detail produk jika ada (mis. image gallery) -->
+    <!-- <script src="js/product-detail.js"></script> -->
+</body>
+</html>

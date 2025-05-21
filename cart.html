@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keranjang Belanja - TempeTahu Kita</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <!-- Sama seperti di index.html -->
+        <div class="container">
+            <a href="index.html" class="logo">
+                <h1>TempeTahu Kita</h1>
+            </a>
+            <nav>
+                <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="products.html">Produk</a></li>
+                    <li><a href="recipes.html">Resep</a></li>
+                    <li><a href="about.html">Tentang Kami</a></li>
+                    <li><a href="contact.html">Kontak</a></li>
+                </ul>
+            </nav>
+            <a href="cart.html" class="cart-icon active"> <!-- Tambahkan class active di sini -->
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section id="shopping-cart" class="section-padding">
+            <div class="container">
+                <h2 class="section-title">Keranjang Belanja Anda</h2>
+                <div id="cart-items-container">
+                    <!-- Item keranjang akan di-render oleh JavaScript -->
+                    <!-- Contoh struktur (akan dihapus oleh JS):
+                    <div class="cart-item">
+                        <img src="images/tempe-mendoan.jpg" alt="Tempe Mendoan" class="cart-item-image">
+                        <div class="cart-item-details">
+                            <h4>Tempe Mendoan Fresh</h4>
+                            <p>Harga: Rp 10.000</p>
+                        </div>
+                        <div class="cart-item-quantity">
+                            <button class="quantity-btn">-</button>
+                            <span>1</span>
+                            <button class="quantity-btn">+</button>
+                        </div>
+                        <p class="cart-item-subtotal">Subtotal: Rp 10.000</p>
+                        <button class="remove-item-btn">×</button>
+                    </div>
+                    -->
+                </div>
+
+                <div id="cart-summary">
+                    <h3>Ringkasan Pesanan</h3>
+                    <p>Subtotal: <span id="cart-subtotal-price">Rp 0</span></p>
+                    <p>Biaya Pengiriman: <span id="shipping-cost">Akan dihitung</span></p>
+                    <hr>
+                    <h4>Total: <span id="cart-total-price">Rp 0</span></h4>
+                    <div class="cart-actions">
+                        <a href="products.html" class="btn btn-outline">Lanjutkan Belanja</a>
+                        <a href="checkout.html" class="btn btn-primary" id="checkout-button">Lanjut ke Checkout</a>
+                    </div>
+                </div>
+                 <div id="empty-cart-message" style="display:none; text-align:center; padding: 20px; background-color: var(--light-color); border-radius: var(--border-radius);">
+                    <p>Keranjang belanja Anda masih kosong.</p>
+                    <a href="products.html" class="btn btn-primary" style="margin-top:15px;">Mulai Belanja</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <!-- Sama seperti di index.html -->
+        <div class="container">
+            <div class="footer-content">
+                 <div class="footer-section about">
+                    <h3>TempeTahu Kita</h3>
+                    <p>Menyediakan tempe dan tahu segar berkualitas tinggi untuk Anda dan keluarga.</p>
+                    <div class="socials">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section links">
+                    <h3>Tautan Cepat</h3>
+                    <ul>
+                        <li><a href="products.html">Produk</a></li>
+                        <li><a href="recipes.html">Resep</a></li>
+                        <li><a href="about.html">Tentang Kami</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact-info">
+                    <h3>Kontak Kami</h3>
+                    <p><i class="fas fa-phone"></i> +62 123 4567 890</p>
+                    <p><i class="fas fa-envelope"></i> info@tempetahukita.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Jl. Kedelai Sehat No. 1, Jakarta</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                © <span id="currentYear"></span> TempeTahu Kita | Didesain dengan ❤️
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

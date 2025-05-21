@@ -1,0 +1,1732 @@
+/* ==========================================================================
+   1. CSS Variables & Global Reset
+   ========================================================================== */
+
+:root {
+    --primary-color: #FFC107;    /* Kuning kunyit/oranye sebagai aksen */
+    --secondary-color: #8D6E63; /* Cokelat muda */
+    --light-color: #F5F5F5;      /* Krem / Putih pudar */
+    --dark-color: #3E2723;       /* Cokelat tua untuk teks utama, judul */
+    --text-color: #5D4037;       /* Cokelat untuk teks paragraf */
+    --success-color: #4CAF50;    /* Hijau untuk notifikasi sukses */
+    --error-color: #f44336;      /* Merah untuk notifikasi error (tambahan) */
+
+    --font-family-heading: 'Poppins', sans-serif;
+    --font-family-body: 'Roboto', sans-serif;
+
+    --container-width: 1100px;
+    --border-radius: 5px;
+    --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --box-shadow-hover: 0 5px 15px rgba(0,0,0,0.15); /* Untuk hover efek */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ==========================================================================
+   2. Basic Styling (Body, Typography, Links, Images)
+   ========================================================================== */
+
+body {
+    font-family: var(--font-family-body);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #FFFAF0; /* Warna dasar yang sedikit earthy */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-heading);
+    color: var(--dark-color);
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-color);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Menghilangkan spasi di bawah gambar inline */
+}
+
+ul {
+    list-style: none;
+}
+
+/* ==========================================================================
+   3. Utility Classes
+   ========================================================================== */
+
+.container {
+    max-width: var(--container-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.section-padding {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.section-title::after { /* Hiasan bawah judul */
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary-color);
+    margin: 10px auto 0;
+}
+
+.sub-section-title { /* Untuk sub-judul dalam sebuah section */
+    font-size: 1.8rem;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.sub-section-title::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 2px;
+    background-color: var(--primary-color);
+    margin: 8px auto 0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.bg-light {
+    background-color: var(--light-color);
+}
+
+.bg-dark {
+    background-color: var(--dark-color);
+}
+.bg-dark .section-title,
+.bg-dark h1, .bg-dark h2, .bg-dark h3, .bg-dark h4,
+.bg-dark p {
+    color: #fff; /* Atau var(--light-color) */
+}
+.bg-dark .section-title::after {
+    background-color: var(--light-color); /* Atau var(--primary-color) jika kontras */
+}
+
+/* Untuk teks di atas background gelap */
+.text-light p, .text-light h1, .text-light h2, .text-light h3, .text-light h4 {
+    color: #fff; /* Atau var(--light-color) */
+}
+
+.disabled {
+    opacity: 0.6;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+/* ==========================================================================
+   4. Buttons
+   ========================================================================== */
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    border: none;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow-hover);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--dark-color);
+}
+.btn-primary:hover {
+    background-color: #e6ac00; /* Warna hover lebih gelap */
+    color: var(--dark-color);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: #fff;
+}
+.btn-secondary:hover {
+    background-color: #795548;
+    color: #fff;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
+}
+.btn-outline:hover {
+    background-color: var(--secondary-color);
+    color: #fff;
+}
+
+.btn-block { /* Untuk tombol yang memenuhi lebar parent */
+    display: block;
+    width: 100%;
+}
+
+/* ==========================================================================
+   5. Header & Navigation
+   ========================================================================== */
+
+header {
+    background-color: #fff;
+    box-shadow: var(--box-shadow);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    left: 0; /* Tambahkan left untuk konsistensi */
+    width: 100%;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo { /* Jika logo berupa gambar, bukan hanya h1 */
+    /* max-width: 150px; */ /* Sesuaikan */
+}
+header .logo h1 {
+    margin-bottom: 0;
+    font-size: 1.8rem;
+    color: var(--dark-color);
+}
+/* header .logo img { max-height: 50px; } */
+
+header nav ul {
+    display: flex;
+    align-items: center; /* Untuk vertikal alignment jika link beda tinggi */
+}
+
+header nav ul li {
+    margin-left: 25px;
+}
+
+header nav ul li a {
+    font-weight: 500;
+    padding: 5px 0; /* Padding untuk area klik lebih besar */
+    position: relative;
+}
+
+header nav ul li a.active,
+header nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+header nav ul li a.active::after,
+header nav ul li a:hover::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+.cart-icon-wrapper { /* Wrapper untuk ikon keranjang dan toggle menu jika perlu */
+    display: flex;
+    align-items: center;
+}
+
+.cart-icon {
+    position: relative;
+    font-size: 1.5rem; /* Atau sesuaikan */
+    color: var(--dark-color);
+    margin-left: 20px; /* Jarak dari menu nav atau item lain */
+}
+
+.cart-icon .cart-count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background-color: var(--primary-color);
+    color: var(--dark-color);
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    line-height: 1; /* Agar padding konsisten */
+}
+
+.menu-toggle {
+    display: none; /* Sembunyikan di desktop */
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--dark-color);
+    padding: 5px; /* Area klik lebih besar */
+    margin-left: 15px; /* Jarak dari cart icon jika berdampingan */
+}
+
+/* ==========================================================================
+   6. Footer
+   ========================================================================== */
+
+footer {
+    background-color: var(--dark-color);
+    color: #ccc; /* Warna teks default di footer */
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+footer .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+footer h3 { /* Judul widget di footer */
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+footer p,
+footer ul li a {
+    color: #aaa; /* Warna teks yang lebih soft */
+    font-size: 0.9rem;
+}
+
+footer ul li {
+    margin-bottom: 8px;
+}
+
+footer ul li a:hover {
+    color: var(--primary-color);
+    padding-left: 5px; /* Efek hover kecil */
+}
+
+.socials a { /* Untuk ikon sosial di footer */
+    color: #aaa;
+    margin-right: 15px;
+    font-size: 1.3rem;
+    display: inline-block; /* Agar transisi transform bekerja */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+.socials a:last-child {
+    margin-right: 0;
+}
+.socials a:hover {
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #4e4e4e; /* Warna border lebih soft */
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+/* ==========================================================================
+   7. Forms (General Styling, can be overridden by specific forms)
+   ========================================================================== */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="password"], /* Tambahkan jika ada */
+.form-group input[type="number"],   /* Tambahkan jika ada */
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-family: inherit; /* Agar font sama dengan body */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(255, 193, 7, 0.25); /* Ringan shadow saat focus */
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.required-asterisk {
+    color: var(--error-color, red);
+    margin-left: 2px;
+}
+
+/* Bootstrap-like validation feedback styling */
+.form-group .invalid-feedback {
+    display: none;
+    width: 100%;
+    margin-top: .25rem;
+    font-size: .875em;
+    color: var(--error-color, #dc3545);
+}
+
+.was-validated .form-group input:invalid,
+.was-validated .form-group textarea:invalid,
+.was-validated .form-group select:invalid {
+    border-color: var(--error-color, #dc3545);
+}
+
+.was-validated .form-group input:invalid ~ .invalid-feedback,
+.was-validated .form-group textarea:invalid ~ .invalid-feedback,
+.was-validated .form-group select:invalid ~ .invalid-feedback {
+    display: block;
+}
+
+/* For inline form elements or grouped elements */
+.form-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; /* Agar responsif */
+}
+.form-row .form-group {
+    flex: 1;
+    min-width: 200px; /* Agar tidak terlalu sempit */
+}
+
+/* ==========================================================================
+   8. Common Components (Cards, Notifications, Breadcrumbs etc.)
+   ========================================================================== */
+
+/* --- Product Card (digunakan di banyak tempat) --- */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px; /* Atau tergantung section */
+}
+
+.product-card {
+    background-color: #fff;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden; /* Untuk border-radius pada gambar */
+    text-align: center;
+    padding: 20px;
+    display: flex; /* Untuk alignment konten jika tinggi beda */
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-hover);
+}
+
+.product-card img {
+    /* width: 100%; Tidak perlu, sudah max-width 100% global */
+    height: 200px; /* Tinggi gambar konsisten */
+    object-fit: cover;
+    margin-bottom: 15px;
+    border-radius: var(--border-radius); /* Jika gambar tidak full bleed */
+}
+
+.product-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    flex-grow: 1; /* Agar judul mengambil ruang jika deskripsi pendek */
+}
+
+.product-card .price {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.product-card .btn { /* Tombol di dalam product card */
+    margin-top: auto; /* Dorong tombol ke bawah jika card flex */
+}
+
+/* --- Notifications --- */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: var(--border-radius);
+    color: white;
+    box-shadow: var(--box-shadow);
+    z-index: 2000;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    transform: translateY(20px); /* Start from bottom */
+}
+.notification.show, /* Jika menggunakan JS untuk menambah kelas 'show' */
+.notification:not([style*="opacity: 0"]) { /* Fallback jika JS langsung set opacity */
+    opacity: 1;
+    transform: translateY(0);
+}
+.notification.success {
+    background-color: var(--success-color);
+}
+.notification.error {
+    background-color: var(--error-color, #f44336); /* Default jika variabel tidak ada */
+}
+/* .notification.info { background-color: #2196F3; }
+.notification.warning { background-color: #ff9800; } */
+
+
+/* --- Breadcrumbs --- */
+.breadcrumbs {
+    margin-bottom: 20px;
+    padding: 10px 0; /* Beri sedikit ruang */
+    font-size: 0.9rem;
+    color: var(--text-color);
+    /* border-bottom: 1px solid #eee; */ /* Opsional */
+}
+.breadcrumbs a {
+    color: var(--secondary-color);
+}
+.breadcrumbs a:hover {
+    text-decoration: underline;
+}
+.breadcrumbs span { /* Current page */
+    color: var(--dark-color);
+    font-weight: 500;
+}
+.breadcrumbs span::before { /* Separator */
+    content: '/';
+    margin: 0 8px;
+    color: var(--text-color);
+}
+.breadcrumbs a:first-child + span::before { /* Jika hanya ada Home > Current */
+    /* Tidak perlu separator sebelum yang pertama aktif */
+}
+
+
+/* ==========================================================================
+   9. Page Specific Sections
+   ========================================================================== */
+
+/* --- Hero Section (Homepage) --- */
+#hero {
+    background: url('../images/hero-bg.jpg') no-repeat center center/cover; /* Ganti dengan gambar Anda */
+    color: #fff;
+    min-height: 70vh; /* Gunakan min-height agar konten tidak terpotong */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center konten secara horizontal juga */
+    text-align: center;
+    position: relative;
+    padding: 60px 20px; /* Padding untuk konten */
+}
+
+#hero::before { /* Overlay gelap */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Opacity overlay */
+    z-index: 0; /* Di bawah konten */
+}
+
+#hero .container {
+    position: relative; /* Agar konten di atas overlay */
+    z-index: 1;
+    max-width: 800px; /* Batasi lebar konten hero */
+}
+
+#hero h2 { /* Judul utama di hero */
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    color: #fff;
+    font-weight: 700; /* Lebih tebal */
+}
+
+#hero p { /* Subtitle di hero */
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    line-height: 1.7;
+}
+
+/* --- Page Hero (Untuk halaman internal seperti About, Contact) --- */
+.page-hero {
+    /* background: url('../images/page-hero-bg.jpg') no-repeat center center/cover; */ /* Ganti gambar */
+    background-color: var(--secondary-color); /* Fallback jika tidak ada gambar */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 60px 0; /* Lebih kecil dari hero utama */
+    text-align: center;
+    position: relative;
+}
+.page-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Overlay sedikit lebih terang */
+}
+.page-hero .container {
+    position: relative;
+    z-index: 1;
+}
+.page-hero h1 { /* Judul Halaman */
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #fff;
+}
+.page-hero p { /* Subtitle halaman, opsional */
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+/* --- Product Listing Page (Filter & Search) --- */
+.filter-search-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: var(--light-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.filters, .search-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Jarak antar elemen di dalam filter/search */
+}
+
+.filters label, .search-bar label {
+    /* margin-right: 10px; (sudah dihandle gap) */
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.filters select,
+.search-bar input[type="text"] {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    font-size: 0.9rem;
+    min-width: 180px; /* Agar tidak terlalu sempit */
+}
+
+.search-bar input[type="text"] {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: none; /* Agar menyatu dengan tombol search */
+    flex-grow: 1; /* Agar input mengisi ruang */
+}
+
+.search-bar button {
+    padding: 9px 15px; /* Sesuaikan padding agar tingginya sama dengan input */
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.search-bar button:hover {
+    background-color: #795548; /* Darker shade of secondary */
+}
+#no-product-message {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    font-style: italic;
+}
+
+
+/* --- Product Detail Page --- */
+.product-detail-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr; /* Kolom gambar lebih kecil */
+    gap: 40px;
+    align-items: flex-start; /* Agar konten tidak stretch jika beda tinggi */
+}
+
+.product-gallery img#main-product-image {
+    width: 100%;
+    max-height: 450px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    border: 1px solid #eee; /* Batas halus */
+}
+/* Jika ada thumbnails:
+.product-gallery .thumbnails {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+.product-gallery .thumbnails img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+.product-gallery .thumbnails img.active,
+.product-gallery .thumbnails img:hover {
+    border-color: var(--primary-color);
+} */
+
+.product-info h2#product-name { /* Bisa juga .product-info .product-title */
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+.product-info .product-price {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.product-info .product-description,
+.product-info .product-nutrition {
+    margin-top: 20px;
+}
+.product-info .product-description h4, /* Judul sub-bagian seperti Deskripsi, Nutrisi */
+.product-info .product-nutrition h4 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+.product-info .product-nutrition ul {
+    list-style: disc;
+    padding-left: 20px;
+    font-size: 0.9rem;
+}
+.product-info .product-nutrition ul li {
+    margin-bottom: 5px;
+}
+
+.product-actions { /* Kontainer untuk input kuantitas dan tombol Add to cart */
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.product-actions label {
+    font-weight: 500;
+    margin-right: 5px; /* Jarak ke input */
+}
+.quantity-input-detail { /* Input kuantitas di halaman detail */
+    width: 60px;
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+}
+.product-actions .add-to-cart-btn i { /* Jika ada ikon di tombol */
+    margin-right: 8px;
+}
+
+
+/* --- Cart Page --- */
+#cart-items-container {
+    margin-bottom: 30px;
+}
+#empty-cart-message { /* Pesan jika keranjang kosong */
+    text-align: center;
+    padding: 30px 0;
+    font-style: italic;
+}
+
+.cart-item {
+    display: flex; /* Layout utama per item */
+    /* align-items: center; (bisa jadi flex-start jika deskripsi panjang) */
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+    gap: 20px; /* Jarak antar kolom utama (gambar, detail, qty, subtotal, hapus) */
+}
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item-image {
+    width: 100px; /* Ukuran gambar di keranjang */
+    height: 100px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    /* margin-right: 15px; (sudah dihandle gap) */
+    flex-shrink: 0; /* Agar gambar tidak mengecil */
+}
+
+.cart-item-details {
+    flex-grow: 1; /* Agar mengisi ruang */
+    /* padding-right: 15px; (sudah dihandle gap) */
+}
+.cart-item-details h4 {
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+.cart-item-details p { /* Info tambahan seperti harga satuan */
+    font-size: 0.9rem;
+    color: var(--text-color);
+    margin-bottom: 0;
+}
+
+.cart-item-quantity {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0; /* Agar tidak mengecil */
+}
+.cart-item-quantity .quantity-input, /* Jika menggunakan input di keranjang */
+.cart-item-quantity span { /* Jika menggunakan span untuk display */
+    padding: 0 10px;
+    font-weight: bold;
+    min-width: 40px; /* Agar angka tidak geser-geser */
+    text-align: center;
+    border: 1px solid #ddd; /* Untuk input */
+    border-radius: var(--border-radius); /* Untuk input */
+    height: 36px; /* Samakan tinggi dengan tombol */
+    line-height: 34px; /* Vertikal align teks di input/span */
+}
+.cart-item-quantity .quantity-input {
+    width: 50px; /* Lebar spesifik untuk input */
+}
+.cart-item-quantity .quantity-btn {
+    background-color: var(--light-color);
+    border: 1px solid #ddd;
+    color: var(--dark-color);
+    padding: 0 10px; /* Padding horizontal saja */
+    height: 36px; /* Samakan tinggi */
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    line-height: 34px; /* Vertikal align ikon/teks */
+}
+.cart-item-quantity .quantity-btn:hover {
+    background-color: #e0e0e0;
+}
+.cart-item-quantity .decrease-quantity {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.cart-item-quantity .increase-quantity {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.cart-item-quantity .quantity-input { /* Jika input di tengah tombol */
+    border-radius: 0;
+    margin: 0 -1px; /* Agar border menyatu */
+}
+
+
+.cart-item-subtotal {
+    font-weight: bold;
+    min-width: 120px; /* Agar harga rapi */
+    text-align: right;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.remove-item-btn {
+    background: none;
+    border: none;
+    color: var(--error-color, #cc0000);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+    line-height: 1; /* Agar ikon tidak membuat baris tinggi */
+    flex-shrink: 0;
+}
+.remove-item-btn:hover {
+    color: #ff0000;
+}
+
+#cart-summary {
+    background-color: var(--light-color);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    margin-top: 30px; /* Atau sesuai layout */
+    box-shadow: var(--box-shadow);
+}
+#cart-summary h3 {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    font-size: 1.4rem;
+}
+#cart-summary .summary-row { /* Untuk baris subtotal, ongkir, total */
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+#cart-summary .summary-row span:last-child {
+    font-weight: 500;
+}
+#cart-summary hr { /* Garis pemisah sebelum total */
+    border: 0;
+    border-top: 1px dashed #ccc;
+    margin: 15px 0;
+}
+#cart-summary .cart-total-price-row { /* Untuk baris Total Akhir */
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--dark-color);
+    margin-top: 15px; /* Jarak setelah hr */
+}
+
+.cart-actions { /* Kontainer tombol di bawah summary */
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between; /* Atau flex-end jika ingin tombol ke kanan */
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.cart-actions .btn {
+    flex-grow: 1; /* Agar tombol memenuhi ruang jika hanya ada satu, atau bagi rata */
+    min-width: 180px; /* Minimal lebar tombol */
+}
+
+
+/* --- Checkout Page --- */
+#checkout-layout {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr; /* Form lebih besar dari summary */
+    gap: 40px;
+    align-items: flex-start;
+}
+
+#checkout-form-container h3,
+#order-summary-container h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* Form styling sudah di-cover oleh .form-group global */
+/* Tambahan khusus untuk checkout */
+.payment-methods {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+.payment-methods .form-check { /* Untuk radio button pembayaran */
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+.payment-methods .form-check:hover {
+    background-color: #f9f9f9;
+}
+.payment-methods .form-check input[type="radio"] {
+    margin-right: 10px;
+    accent-color: var(--primary-color); /* Warna radio button saat dipilih */
+    width: auto; /* Override width 100% dari .form-group input */
+    height: auto;
+}
+.payment-methods .form-check label {
+    margin-bottom: 0; /* Override .form-group label */
+    font-weight: normal;
+}
+
+#order-summary-container { /* Styling box summary di checkout */
+    background-color: var(--light-color);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    /* align-self: flex-start; (sudah di #checkout-layout) */
+}
+
+#checkout-order-items .checkout-item { /* Item di summary checkout */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #ddd;
+}
+#checkout-order-items .checkout-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+.checkout-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+.checkout-item .item-info {
+    flex-grow: 1;
+}
+.checkout-item .item-info span { /* Untuk kuantitas */
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-color);
+}
+.checkout-item .item-price {
+    font-weight: 500;
+    flex-shrink: 0;
+}
+
+.summary-totals { /* Kontainer untuk subtotal, ongkir, total di checkout summary */
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #ccc;
+}
+.summary-totals .summary-row { /* Mirip cart-summary */
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.summary-totals .summary-row span:last-child {
+    font-weight: 500;
+}
+.summary-totals hr { /* Jika masih dipakai, style sama dengan cart */
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 15px 0;
+}
+.summary-totals .checkout-total-price-row { /* Untuk Total Akhir */
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--dark-color);
+    margin-top: 10px;
+}
+#checkout-success-message {
+    padding: 30px;
+    background-color: var(--light-color);
+    border: 1px solid var(--success-color);
+    border-radius: var(--border-radius);
+    text-align: center;
+}
+#checkout-success-message h3 {
+    color: var(--success-color);
+}
+
+
+/* --- Contact Page --- */
+.contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr; /* Info kontak sedikit lebih kecil */
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.contact-info-block h3 { /* Judul untuk "Info Kontak" */
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+.contact-info-block ul {
+    list-style: none;
+    padding: 0;
+    /* margin-top: 20px; (jika h3 di atasnya) */
+}
+.contact-info-block ul li {
+    margin-bottom: 20px;
+    font-size: 1rem;
+    display: flex;
+    align-items: flex-start;
+}
+.contact-info-block ul li i { /* Ikon di info kontak */
+    color: var(--primary-color);
+    margin-right: 15px;
+    font-size: 1.2rem; /* Ukuran ikon */
+    width: 25px; /* Agar ikon sejajar */
+    text-align: center;
+    flex-shrink: 0;
+    margin-top: 2px; /* Penyesuaian vertikal ikon */
+}
+
+.socials-contact { /* Ikon sosial di halaman kontak */
+    margin-top: 30px;
+}
+.socials-contact h4 { /* Judul "Ikuti Kami" */
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+.socials-contact a {
+    color: var(--secondary-color);
+    margin-right: 15px;
+    font-size: 1.5rem; /* Ikon sosial lebih besar */
+    display: inline-block;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+.socials-contact a:last-child {
+    margin-right: 0;
+}
+.socials-contact a:hover {
+    color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+#contact-form-container h3 { /* Judul untuk "Kirim Pesan" */
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+/* Form styling sudah di-cover .form-group */
+#contact-form button[type="submit"] {
+    padding: 12px 25px; /* Ukuran tombol submit kontak */
+    /* Bisa juga pakai .btn-block jika ingin full width */
+}
+#contact-form-success {
+    padding: 15px;
+    background-color: var(--success-color);
+    color: white;
+    border-radius: var(--border-radius);
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+#map-location {
+    margin-top: 40px; /* Jarak dari form kontak */
+    /* padding:0; (jika section di atasnya sudah ada padding-bottom) */
+    border-radius: var(--border-radius);
+    overflow: hidden; /* Agar border radius iframe terlihat */
+    box-shadow: var(--box-shadow);
+}
+#map-location iframe {
+    display: block; /* Hilangkan space bawah iframe */
+    width: 100%;
+    height: 400px; /* Tinggi peta */
+    border: none;
+}
+
+
+/* --- About Page (Mission, Vision etc.) --- */
+.content-section { /* Untuk blok teks seperti di halaman About */
+    max-width: 900px; /* Batasi lebar konten agar mudah dibaca */
+    margin-left: auto;
+    margin-right: auto;
+}
+.content-text p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+.content-text strong {
+    color: var(--dark-color);
+    font-weight: 600;
+}
+.content-text ul {
+    list-style: disc;
+    padding-left: 25px;
+    margin-bottom: 1.5rem;
+}
+.content-text ul li {
+    margin-bottom: 0.5rem;
+}
+
+.mission-vision-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    text-align: center;
+    margin-top: 40px; /* Jarak dari konten teks di atas */
+}
+.mission-item, .vision-item {
+    padding: 25px;
+    background-color: #fff; /* Opsional, bisa juga transparan */
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+.mission-item i, .vision-item i { /* Ikon untuk misi/visi */
+    color: var(--primary-color);
+    font-size: 2.5rem; /* Ukuran ikon */
+    margin-bottom: 15px;
+    display: block; /* Agar margin bekerja */
+}
+.mission-item h3, .vision-item h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+/* --- Recipe Page --- */
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Sedikit lebih lebar dari product card */
+    gap: 30px;
+}
+
+.recipe-card {
+    background-color: #fff;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.recipe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-hover);
+}
+.recipe-card img {
+    width: 100%;
+    height: 220px; /* Tinggi gambar resep */
+    object-fit: cover;
+}
+.recipe-card-content {
+    padding: 20px;
+    flex-grow: 1; /* Agar konten mengisi sisa ruang */
+    display: flex;
+    flex-direction: column;
+}
+.recipe-card-content h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: var(--dark-color);
+}
+.recipe-meta { /* Info seperti waktu masak, porsi */
+    font-size: 0.85rem;
+    color: var(--text-color);
+    margin-bottom: 10px;
+    display: flex; /* Untuk alignment ikon dan teks */
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.recipe-meta span { /* Setiap item meta */
+    display: flex;
+    align-items: center;
+}
+.recipe-meta i {
+    margin-right: 5px;
+    color: var(--secondary-color);
+}
+.recipe-excerpt {
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    flex-grow: 1; /* Agar excerpt mengisi ruang sebelum tombol */
+    line-height: 1.5;
+}
+.recipe-card-content .btn {
+    align-self: flex-start; /* Tombol tidak full width */
+    margin-top: auto; /* Dorong tombol ke bawah */
+}
+
+/* --- Testimonials (Simple layout, bisa dikembangkan jadi slider) --- */
+.testimonial-slider { /* Kontainer testimoni */
+    display: flex;
+    flex-wrap: wrap; /* Akan jadi slider dengan JS, atau tetap grid */
+    gap: 30px;
+    justify-content: center;
+}
+.testimonial-card {
+    background-color: var(--light-color);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    border-left: 5px solid var(--primary-color); /* Aksen */
+    flex-basis: calc(50% - 15px); /* 2 kolom dengan gap ( (100% - gap) / 2 ) */
+    min-width: 300px; /* Agar tidak terlalu sempit di layar kecil */
+    box-shadow: var(--box-shadow);
+}
+.testimonial-card p { /* Kutipan testimoni */
+    font-style: italic;
+    margin-bottom: 15px;
+    line-height: 1.7;
+    font-size: 1rem;
+}
+.testimonial-card p::before { /* Tanda kutip pembuka */
+    content: "“";
+    font-size: 1.5em;
+    color: var(--primary-color);
+    margin-right: 5px;
+    line-height: 0;
+}
+.testimonial-card h4 { /* Nama pemberi testimoni */
+    font-weight: bold;
+    text-align: right;
+    color: var(--secondary-color);
+    font-size: 1rem;
+    margin-top: 10px;
+}
+.testimonial-card h4::before {
+    content: "— ";
+}
+
+
+/* --- Benefits Section (Biasanya di homepage) --- */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+.benefit-item i { /* Ikon benefit */
+    font-size: 2.5rem; /* Ukuran ikon */
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    display: block;
+}
+.benefit-item h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+.benefit-item p {
+    font-size: 0.95rem;
+}
+
+
+/* --- Newsletter Form (Biasanya di footer atau section sendiri) --- */
+.newsletter-section { /* Jika newsletter punya section sendiri */
+    background-color: var(--secondary-color); /* Contoh background */
+    color: #fff;
+    padding: 40px 0;
+}
+.newsletter-section .section-title {
+    color: #fff;
+}
+.newsletter-section .section-title::after {
+    background-color: var(--primary-color); /* Atau #fff */
+}
+.newsletter-form {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Vertikal align */
+    max-width: 600px;
+    margin: 20px auto 0;
+    flex-wrap: wrap; /* Untuk mobile */
+    gap: 10px; /* Untuk mobile */
+}
+.newsletter-form input[type="email"] {
+    flex-grow: 1;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    min-width: 250px; /* Agar tidak terlalu sempit */
+}
+.newsletter-form button {
+    padding: 12px 20px; /* Samakan tinggi dengan input */
+    /* border-radius: 0 var(--border-radius) var(--border-radius) 0; (Jika menyatu dengan input) */
+    border-radius: var(--border-radius); /* Jika terpisah karena gap */
+    /* Jika ingin menyatu:
+    .newsletter-form input[type="email"] { border-radius: var(--border-radius) 0 0 var(--border-radius); border-right: none;}
+    .newsletter-form button { border-radius: 0 var(--border-radius) var(--border-radius) 0; }
+    */
+}
+
+
+/* ==========================================================================
+   10. Responsive Design (Media Queries)
+   ========================================================================== */
+
+/* --- Tablet and smaller (max-width: 992px) --- */
+@media (max-width: 992px) {
+    .container {
+        /* Bisa kurangi max-width jika perlu */
+    }
+    .section-title {
+        font-size: 2rem;
+    }
+    .sub-section-title {
+        font-size: 1.6rem;
+    }
+
+    /* Header */
+    header .container {
+        /* flex-wrap: wrap; (Sudah diatur di mobile, mungkin belum perlu di tablet) */
+    }
+
+    /* Product Detail */
+    .product-detail-layout {
+        grid-template-columns: 1fr; /* Satu kolom di tablet */
+    }
+    .product-gallery img#main-product-image {
+        max-height: 380px; /* Kurangi tinggi gambar utama */
+        margin: 0 auto 20px; /* Center gambar jika jadi 1 kolom */
+    }
+
+    /* Checkout */
+    #checkout-layout {
+        grid-template-columns: 1fr; /* Satu kolom di tablet */
+    }
+    #order-summary-container {
+        margin-top: 30px; /* Beri jarak jika jadi satu kolom */
+    }
+
+    /* Contact Page */
+    .contact-layout {
+        grid-template-columns: 1fr;
+    }
+    .contact-info-block {
+        margin-bottom: 30px;
+    }
+     /* Hapus text-align center untuk tablet, biarkan default (left) */
+    .contact-info-block .section-title,
+    .contact-form-block .section-title {
+        /* text-align: left; */
+    }
+    .contact-info-block .section-title::after,
+    .contact-form-block .section-title::after {
+        /* margin: 8px 0 0; */ /* Hiasan ke kiri */
+    }
+
+    /* Testimonials */
+    .testimonial-card {
+        flex-basis: 100%; /* 1 kolom di tablet jika dirasa lebih baik */
+    }
+}
+
+
+/* --- Mobile devices (max-width: 768px) --- */
+@media (max-width: 768px) {
+    body {
+        font-size: 0.95rem; /* Sedikit perkecil font dasar */
+    }
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.6rem; }
+    h3 { font-size: 1.4rem; }
+
+    .section-padding {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+    .section-title::after {
+        width: 50px;
+    }
+    .sub-section-title {
+        font-size: 1.5rem;
+    }
+
+    /* Header & Navigation */
+    header .container {
+        flex-wrap: wrap; /* Logo di atas, nav & cart di bawah atau diatur ulang */
+        position: relative; /* Untuk positioning menu toggle & cart */
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    header .logo {
+        width: calc(100% - 120px); /* Sisakan ruang untuk toggle & cart */
+    }
+    header nav {
+        width: 100%;
+        order: 3; /* Pindah ke bawah setelah logo dan cart icon/menu toggle */
+        max-height: 0; /* Sembunyikan menu */
+        overflow: hidden;
+        transition: max-height 0.3s ease-out, padding-top 0.3s ease-out;
+        background-color: #fff; /* Latar belakang untuk menu dropdown */
+        box-shadow: 0 5px 10px rgba(0,0,0,0.05); /* Shadow halus untuk dropdown */
+        position: absolute; /* Agar tidak mendorong konten di bawah */
+        top: 100%; /* Tepat di bawah header */
+        left: 0;
+        right: 0;
+    }
+    header nav.nav-active {
+        max-height: 500px; /* Tinggi maksimal saat menu terbuka */
+        padding-top: 15px; /* Padding saat terbuka */
+        border-top: 1px solid #eee;
+    }
+    header nav ul {
+        flex-direction: column;
+        align-items: center; /* Atau flex-start jika ingin rata kiri */
+        width: 100%;
+    }
+    header nav ul li {
+        margin: 10px 0;
+        width: 100%;
+        text-align: center; /* Atau left */
+    }
+    header nav ul li a {
+        padding: 10px 15px; /* Area klik lebih besar di mobile */
+        display: block; /* Agar full width */
+    }
+    header nav ul li a:hover::after,
+    header nav ul li a.active::after {
+        display: none; /* Sembunyikan garis bawah di mobile nav, atau sesuaikan */
+    }
+
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+        z-index: 1001; /* Di atas nav saat tertutup */
+    }
+    .cart-icon-wrapper {
+        position: absolute;
+        top: 50%;
+        right: 60px; /* Beri ruang dari burger menu */
+        transform: translateY(-50%);
+    }
+    .cart-icon {
+        margin-left: 0;
+    }
+
+
+    /* Hero Section */
+    #hero {
+        min-height: 50vh;
+    }
+    #hero h2 {
+        font-size: 2rem;
+    }
+    #hero p {
+        font-size: 1rem;
+    }
+    .page-hero h1 {
+        font-size: 2rem;
+    }
+
+    /* Product Grid */
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Bisa juga 1fr untuk 1 kolom */
+        gap: 20px;
+    }
+    .product-card {
+        padding: 15px;
+    }
+
+    /* Filter & Search */
+    .filter-search-section {
+        flex-direction: column;
+        align-items: stretch; /* Elemen full width */
+        padding: 15px;
+    }
+    .filters, .search-bar {
+        width: 100%;
+        flex-direction: column; /* Atau biarkan row jika masih muat */
+        align-items: stretch;
+    }
+    .filters select, .search-bar input[type="text"] {
+        width: 100%;
+        min-width: 0; /* Hapus min-width */
+    }
+    .search-bar input[type="text"] {
+        border-radius: var(--border-radius); /* Kembalikan radius jika tidak menyatu */
+        border-right: 1px solid #ccc;
+    }
+    .search-bar button {
+        border-radius: var(--border-radius);
+        width: 100%; /* Tombol full width */
+    }
+
+
+    /* Cart Page */
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start; /* Item rata kiri */
+        position: relative; /* Untuk tombol hapus absolut */
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    .cart-item-image {
+        margin-bottom: 10px;
+        width: 80px;
+        height: 80px;
+    }
+    .cart-item-details {
+        width: 100%; /* Ambil full width */
+    }
+    .cart-item-quantity {
+        margin: 10px 0;
+    }
+    .cart-item-subtotal {
+        text-align: left; /* Subtotal rata kiri */
+        margin-top: 5px;
+        width: 100%;
+        font-size: 1.1rem;
+    }
+    .remove-item-btn {
+        position: absolute;
+        top: 10px;
+        right: 0px; /* Posisi tombol hapus */
+        font-size: 1.3rem;
+    }
+    .cart-actions {
+        flex-direction: column;
+    }
+    .cart-actions .btn {
+        width: 100%; /* Tombol full width di mobile */
+        margin-bottom: 10px;
+    }
+    .cart-actions .btn:last-child {
+        margin-bottom: 0;
+    }
+
+
+    /* Product Detail Page */
+    .product-info h2#product-name {
+        font-size: 1.6rem;
+    }
+    .product-info .product-price {
+        font-size: 1.3rem;
+    }
+    .product-actions {
+        flex-direction: column;
+        align-items: stretch; /* Tombol dan input full width */
+    }
+    .product-actions .add-to-cart-btn {
+        width: 100%;
+        text-align: center;
+        order: 2; /* Tombol di bawah input qty */
+    }
+    .quantity-input-detail {
+        width: 100%;
+        margin-bottom: 10px;
+        order: 1; /* Input qty di atas tombol */
+    }
+    .product-actions label {
+        margin-bottom: 5px; /* Jarak label ke input */
+    }
+
+    /* Checkout Page */
+    .form-row {
+        flex-direction: column;
+        gap: 0; /* Hapus gap, .form-group sudah punya margin-bottom */
+    }
+    #checkout-form-container h3,
+    #order-summary-container h3 {
+        font-size: 1.3rem;
+    }
+
+    /* Contact Page */
+    .contact-info-block .section-title,
+    .contact-form-block .section-title {
+        text-align: center; /* Judul jadi center di mobile */
+    }
+    .contact-info-block .section-title::after, /* Hiasan judul */
+    .contact-form-block .section-title::after {
+        margin: 8px auto 0;
+    }
+    #map-location iframe {
+        height: 300px; /* Kurangi tinggi peta */
+    }
+
+
+    /* Testimonials */
+    .testimonial-card {
+        flex-basis: 100%; /* Testimoni 1 kolom */
+    }
+
+    /* Newsletter */
+    .newsletter-form {
+        flex-direction: column; /* Input dan tombol jadi vertikal */
+    }
+    .newsletter-form input[type="email"],
+    .newsletter-form button {
+        width: 100%;
+        border-radius: var(--border-radius); /* Radius penuh untuk keduanya */
+    }
+    /* .newsletter-form input[type="email"] {
+        border-radius: var(--border-radius) var(--border-radius) 0 0;
+        margin-bottom: 10px;
+    }
+    .newsletter-form button {
+        border-radius: 0 0 var(--border-radius) var(--border-radius);
+    } */
+
+
+    /* Footer */
+    footer .footer-content {
+        grid-template-columns: 1fr; /* 1 kolom untuk widget footer */
+        text-align: center;
+    }
+    .socials {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    footer ul {
+        padding-left: 0; /* Hapus padding jika list jadi center */
+    }
+}
+
+/* --- Extra small devices (max-width: 576px) --- */
+@media (max-width: 576px) {
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .product-grid {
+        grid-template-columns: 1fr; /* Pastikan 1 kolom */
+    }
+    .cart-item-quantity .quantity-input,
+    .cart-item-quantity span {
+        padding: 0 5px; /* Kurangi padding di input qty keranjang */
+        min-width: 30px;
+    }
+    .cart-item-quantity .quantity-btn {
+        padding: 0 8px;
+    }
+
+}
