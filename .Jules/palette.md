@@ -1,0 +1,3 @@
+## 2024-05-06 - Inline Visual Feedback on Interaction Elements
+**Learning:** Floating toast notifications are easily missed by users, especially if they appear at the bottom of the screen while the user is focused on interacting with a product card in the middle or top of the screen. Immediate, localized feedback on the interaction element itself (like changing the button text and color) provides a much more satisfying and reassuring user experience.
+**Action:** Always consider adding inline state changes (e.g., loading, success, disabled states) to buttons directly where the user is looking, rather than solely relying on global toast notifications.
