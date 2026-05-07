@@ -231,6 +231,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 button.dataset.price,
                 button.dataset.image
             );
+
+            // UX Enhancement: Visual feedback on the button itself
+            const originalText = button.textContent;
+            button.innerHTML = '<i class="fas fa-check"></i> Ditambahkan';
+            button.style.backgroundColor = 'var(--success-color, #4CAF50)';
+            button.style.color = 'white';
+            button.disabled = true;
+
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.style.backgroundColor = ''; // Revert to original
+                button.style.color = ''; // Revert to original
+                button.disabled = false;
+            }, 2000);
         }
     });
 
